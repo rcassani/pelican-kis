@@ -1,0 +1,47 @@
+<!-- Header
+================================================== -->
+<header id="top">
+  <div class="row">
+    <div class="header-content twelve columns">
+      <h1 id="logo-text"><a href="index.html" title="">{{ SITENAME }}</a></h1>
+      <p id="intro">{{ SITESUBTITLE }}</p>
+    </div>
+  </div>
+
+  <nav id="nav-wrap">
+    <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
+    <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
+    <div class="row">
+      <ul id="nav" class="nav">
+      <!-- Links that are not pages
+      ================================================== -->
+      {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ title }}</a></li>
+      {% endfor %}
+
+      <!-- Links for Pages, can be ordered by PAGES_SORT_ATTRIBUTE (def. title)
+      ================================================== -->
+      {% if not PAGES_SORT_ATTRIBUTE -%}
+        {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+      {%- endif %}
+      {% if DISPLAY_PAGES_ON_MENU %}
+        {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+          <li{% if p == page %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Links for Categories, create Dropdown
+      ================================================== -->
+      {% if DISPLAY_CATEGORIES_ON_MENU %}
+        <li class="has-children"><a href="#">Categories</a>
+          <ul>
+            {% for cat, null in categories %}
+              <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+      </ul> <!-- end #nav -->
+    </div>
+  </nav> <!-- end #nav-wrap -->
+</header> <!-- Header End -->
