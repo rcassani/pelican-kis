@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Content - Archives
+================================================== -->
+  <div class="row">
+    <div id="main" class="eight columns">
+      <section class="page">
+        <h2>Archives.</h2>
+        <div class="row archive-list">
+          <div class="twelve columns">
+            {% for article in dates %}
+              <p>
+                <span><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+                <a href="/{{ article.url }}">{{ article.title }}</a>
+              </p>
+            {% endfor %}
+          </div>
+        </div>
+      </section> <!-- End page -->
+   	</div> <!-- End main -->
+    {% include 'include/sidebar.html' %}
+  </div> <!-- end row -->
+{% endblock %}

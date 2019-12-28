@@ -23,7 +23,7 @@
       {% if not PAGES_SORT_ATTRIBUTE -%}
         {% set PAGES_SORT_ATTRIBUTE = 'title' %}
       {%- endif %}
-      {% if DISPLAY_PAGES_ON_MENU %}
+      {% if SHOW_PAGES_ON_MENU %}
         {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
           <li{% if p == page %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
         {% endfor %}
@@ -31,7 +31,7 @@
 
       <!-- Links for Categories, create Dropdown
       ================================================== -->
-      {% if DISPLAY_CATEGORIES_ON_MENU %}
+      {% if SHOW_CATEGORIES_ON_MENU %}
         <li class="has-children"><a href="#">Categories</a>
           <ul>
             {% for cat, null in categories %}

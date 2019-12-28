@@ -1,28 +1,31 @@
 {% extends "base.html" %}
-{% block content %}
-<section id="content">
-{% block content_title %}
-<h2>All articles</h2>
-{% endblock %}
 
-<ol id="post-list">
-{% for article in articles_page.object_list %}
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-                    <address class="vcard author">By
-                    {% for author in article.authors %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                    {% endfor %}
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
-        </article></li>
-{% endfor %}
-</ol><!-- /#posts-list -->
-{% if articles_page.has_other_pages() %}
-    {% include 'pagination.html' %}
-{% endif %}
-</section><!-- /#content -->
-{% endblock content %}
+{% block content %}
+<!-- Content - Index
+================================================== -->
+  <div class="row">
+    <div id="main" class="eight columns">
+
+      {% block index_header %}
+      {% endblock %}
+
+      {% for article in articles_page.object_list %}
+        <article class="entry">
+          {% include 'include/article_info.html' %}
+
+          <div class="entry-content">
+            {{ article.summary|striptags }}
+          </div>
+
+          {% if DISQUS_SITENAME %}
+          <p class=tags><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a></p>
+          {% endif %}
+
+        </article> <!-- end entry -->
+        {% if not loop.last %} <hr> {% endif %}
+      {% endfor %}
+    </div> <!-- end main -->
+    {% include 'include/sidebar.html' %}
+  </div> <!-- end row -->
+{% include 'include/pagination.html' %}
+{% endblock %}

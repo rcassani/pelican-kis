@@ -30,50 +30,57 @@
     {% endif %}
     {% endblock head %}
 
-    <!-- mobile specific metas
-    ================================================== -->
+    {% include 'include/google_analytics.html' %}
+
+    <!-- mobile specific metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/theme/css/default.css">
-    <link rel="stylesheet" href="/theme/css/layout.css">
-    <link rel="stylesheet" href="/theme/css/media-queries.css">
-
-    {% if CUSTOM_CSS %}
-    <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
+    <!-- CSS -->
+    {% if 'tipue_search' in PLUGINS %}
+      <link rel="stylesheet" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css">
     {% endif %}
 
-    <!-- Script
-    ================================================== -->
-    <script src="/theme/js/modernizr.js"></script>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/default.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/layout.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/media-queries.css">
 
-    <!-- Favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.png" >
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css">
+
+    {% if CUSTOM_CSS %}
+      <link rel="stylesheet" href="{{ SITEURL }}/{{ CUSTOM_CSS }}">
+    {% endif %}
+
+    <!-- Script -->
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/modernizr.js"></script>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-3.4.1.min.js"></script>
+
+    <!-- Favicons -->
+    {% if FAVICON %}
+      <link rel="shortcut icon" href="FAVICON" >
+    {% else %}
+    <link rel="shortcut icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/favicon.png">
+    {% endif %}
+
   </head>
 
   <body>
     <header id="top">
-        {% include 'include/header.html' %}
+      {% include 'include/header.html' %}
     </header>
 
     <div id="content-wrap">
       {% block content %}{% endblock %}
     </div>
 
-
     <footer>
-        {% include 'include/footer.html' %}
+      {% include 'include/footer.html' %}
     </footer>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/theme/js/jquery-1.10.2.min.js"><\/script>')</script>
-    <script type="text/javascript" src="/theme/js/jquery-migrate-1.2.1.min.js"></script>
-
-    <script src="/theme/js/main.js"></script>
+    <!-- Java Script -->
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-3.4.1.min.js"></script>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
+    {% block extra_js %}{% endblock %}
+    {% include 'include/disqus_comment_count.html' %}
 
   </body>
 </html>

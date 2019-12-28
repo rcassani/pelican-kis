@@ -1,0 +1,51 @@
+<header class="entry-header">
+
+  <h2 class="entry-title">
+    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+  </h2>
+
+  <div class="entry-meta">
+    <ul>
+      <!-- date -->
+      <li>
+        <i class="fa fa-clock-o"></i>
+        {{ article.locale_date }}
+      </li>
+      {% if SHOW_ARTICLE_DATEMODIFIED and article.modified %}
+      <!-- modified date -->
+      <span class="meta-sep">&nbsp;</span>
+      <li>
+        <i class="fa fa-pencil"></i>
+        {{ article.locale_modified }}
+      </li>
+      {% endif %}
+      {% if SHOW_ARTICLE_AUTHOR and article.authors %}
+      <!-- author -->
+        <span class="meta-sep">&bull;</span>
+        <li class="list-inline-item">
+        <i class="fa fa-user-o"></i>
+        {% for author in article.authors %}
+          <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+        </li>
+      {% endif %}
+      {% if SHOW_ARTICLE_CATEGORY or SHOW_ARTICLE_TAGS %}
+      <!-- category and tags -->
+        <p class="tags">
+          {% if SHOW_ARTICLE_CATEGORY and article.category %}
+            <i class="fa fa-folder-open"></i>
+            <span>Category: </span>
+            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a><br>
+          {% endif %}
+          {% if SHOW_ARTICLE_TAGS and article.tags %}
+            <i class="fa fa-tags"></i>
+            <span>Tagged in: </span>
+            {% for tag in article.tags | sort %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          {% endif %}
+        </p>
+      {% endif %}
+    </ul>
+  </div>
+</header>

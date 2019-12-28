@@ -1,0 +1,31 @@
+{% if articles_paginator.num_pages > 1 %}
+  <hr>
+  <div class="row add-bottom">
+    <div class="twelve columns add-bottom">
+      <h3 class="add-bottom">Pagination</h3>
+        <nav class="pagination add-bottom">
+          <!-- Prev button -->
+          {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="page-numbers next">
+              Prev</a>
+          {% else %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="page-numbers next inactive">
+              Prev</a>
+          {% endif %}
+          <!-- /Numbers button -->
+          {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+            <a href="{{ SITEURL }}/{{ articles_paginator.page(num).url if num > 1 else articles_paginator.page(1).url }}" class = "{{ 'page-numbers current' if num == articles_page.number else 'page-numbers' }}">{{ num }}</a>
+          {% endfor %}
+          <!-- /Next button -->
+          {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="page-numbers next">
+              Next</a>
+          {% else %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="page-numbers next inactive ">
+              Next</a>
+          {% endif %}
+        </nav>
+    </div>
+    <hr />
+  </div> <!-- Row End-->
+{% endif %}

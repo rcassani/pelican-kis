@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+  <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
+  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_set.js"></script>
+  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+      'show': 10,
+      'newWindow': false
+    });
+    $('#query').html($('#query').html() + $('#tipue_search_input').val());
+  });
+  </script>
+{% endblock extra_js %}
+
+{% block content %}
+<!-- Content - Page
+================================================== -->
+ 	<div class="row">
+ 	  <div id="main" class="eight columns">
+
+      <h1 class="entry-title" id='query'>Search resuls for: </h1>
+      <br>
+
+      <div id="tipue_search_content"></div>
+
+   	</div> <!-- End main -->
+    {% include 'include/sidebar.html' %}
+  </div> <!-- end row -->
+{% endblock %}
