@@ -1,42 +1,30 @@
 <!-- Sidebar -->
 <div id="sidebar" class="four columns">
-  {% if SHOW_SEARCH_ON_SIDEBAR %}
-  <div class="widget widget_search">
-    <h3>Categories.</h3>
+  {% for sidebar_element in SIDEBAR_ELEMENTS %}
+    {% if sidebar_element == 'tipuesearch_input' %}
+      {% include 'include/sidebar_tipuesearch_input.html' %}
 
-    <form action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);">
-      <input type="text" name="q" id="tipue_search_input" value="Search here..." onblur="if(this.value == '') { this.value = 'Search here...'; }" onfocus="if (this.value == 'Search here...') { this.value = ''; }" class="text-search">
-      <input type="submit" value="" class="submit-search">
-    </form>
-  </div>
-  {% endif%}
+    {% elif sidebar_element == 'categories' %}
+      {% include 'include/sidebar_categories.html' %}
 
-  {% if SHOW_CATEGORIES_ON_SIDEBAR %}
-  <div class="widget widget_categories group">
-    <h3>Categories.</h3>
-    <ul>
-      {% for cat, null in categories %}
-        <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif%}
+    {% elif sidebar_element == 'tags' %}
+      {% include 'include/sidebar_alltags.html' %}
 
-  {% if SHOW_TEXT_ON_SIDEBAR %}
-  <div class="widget widget_text group">
-    <h3>{{ SIDEBAR_TITLE_TEXT}}.</h3>
-    <p>{{ SIDEBAR_TEXT }}
-  </div>
-  {% endif%}
+    {% elif sidebar_element == 'text' %}
+      {% include 'include/sidebar_text.html' %}
 
-  {% if SHOW_TAGS_ON_SIDEBAR %}
-  <div class="widget widget_tags">
-    <h3>Post Tags.</h3>
-      <div class="tagcloud group">
-        {% for tag, null in tags | sort %}
-          <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-        {% endfor %}
-      </div>
-  </div>
-  {% endif%}
+    {% elif sidebar_element == 'links' %}
+      {% include 'include/sidebar_links.html' %}
+
+    {% endif %}
+  {% endfor %}
+
+
+
+
+
+
+
+
+
 </div> <!-- end sidebar -->

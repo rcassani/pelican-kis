@@ -1,0 +1,10 @@
+{% if categories %}
+<div class="widget widget_categories group">
+  <h3>Categories.</h3>
+  <ul>
+    {% for cat, null in categories %}
+      <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

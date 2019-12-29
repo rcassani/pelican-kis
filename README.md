@@ -29,16 +29,18 @@ SHOW_ARTICLE_CATEGORY = True
 SHOW_ARTICLE_DATEMODIFIED = True
 
 # Show elements in Menu bar
+MENUITEMS = [('HOME', '/')] # Menu items before Pages
 SHOW_PAGES_ON_MENU = True
 SHOW_CATEGORIES_ON_MENU = True
 
-# Show elements in Side bar
-SHOW_SEARCH_ON_SIDEBAR = True
-SHOW_CATEGORIES_ON_SIDEBAR = True
-SHOW_TEXT_ON_SIDEBAR = True
+# Elements in Side bar
+SIDEBAR_ELEMENTS = ['tipuesearch_input', 'categories', 'text', 'tags', 'links']
 SIDEBAR_TITLE_TEXT = u'Hello'
 SIDEBAR_TEXT = u'A brief text that will appear in de siderbar, this can be anything'
-SHOW_TAGS_ON_SIDEBAR = True
+LINKS = (
+         ('Home', '/'),
+         ('Google', 'https://www.google.com/')
+        )
 
 # Custum CSS
 CUSTOM_CSS = 'custom.css'

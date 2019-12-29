@@ -1,0 +1,10 @@
+{% if LINKS %}
+<div class="widget widget_categories group">
+  <h3>Links.</h3>
+  <ul>
+    {% for link in LINKS %}
+      <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
