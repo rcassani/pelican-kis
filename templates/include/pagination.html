@@ -1,8 +1,7 @@
 {% if articles_paginator.num_pages > 1 %}
-  <hr>
   <div class="row add-bottom">
     <div class="twelve columns add-bottom">
-      <h3 class="add-bottom">Pagination</h3>
+      <hr>
         <nav class="pagination add-bottom">
           <!-- Prev button -->
           {% if articles_page.has_previous() %}
@@ -26,6 +25,5 @@
           {% endif %}
         </nav>
     </div>
-    <hr />
   </div> <!-- Row End-->
 {% endif %}
