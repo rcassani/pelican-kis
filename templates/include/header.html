@@ -12,34 +12,35 @@
     <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
     <div class="row">
       <ul id="nav" class="nav">
-      <!-- Links that are not pages
-      ================================================== -->
-      {% for title, link in MENUITEMS %}
-        <li><a href="{{ link }}">{{ title }}</a></li>
-      {% endfor %}
 
-      <!-- Links for Pages, can be ordered by PAGES_SORT_ATTRIBUTE (def. title)
-      ================================================== -->
-      {% if not PAGES_SORT_ATTRIBUTE -%}
-        {% set PAGES_SORT_ATTRIBUTE = 'title' %}
-      {%- endif %}
-      {% if SHOW_PAGES_ON_MENU %}
-        {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
-          <li{% if p == page %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+      {% for menu_element in MENU_ELEMENTS %}
+        {% if menu_element == 'menulinks' %}
+        <!-- Links that are not pages -->
+          {% for link in MENU_LINKS %}1
+            <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
+          {% endfor %}
+
+        {% elif menu_element == 'pages' %}
+        <!-- Links for Pages, ordered by PAGES_SORT_ATTRIBUTE (def. title) -->
+          {% if not PAGES_SORT_ATTRIBUTE -%}
+            {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+          {%- endif %}
+          {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+            <li{% if p == page %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}
+
+        {% elif menu_element == 'categories' %}
+        <!-- Links for Categories, create Dropdown -->
+          <li class="has-children"><a href="#">Categories</a>
+            <ul>
+              {% for cat, null in categories %}
+                <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+
+        {% endif %}
         {% endfor %}
-      {% endif %}
-
-      <!-- Links for Categories, create Dropdown
-      ================================================== -->
-      {% if SHOW_CATEGORIES_ON_MENU %}
-        <li class="has-children"><a href="#">Categories</a>
-          <ul>
-            {% for cat, null in categories %}
-              <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% endif %}
       </ul> <!-- end #nav -->
     </div>
   </nav> <!-- end #nav-wrap -->
