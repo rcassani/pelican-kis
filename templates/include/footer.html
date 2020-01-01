@@ -5,7 +5,11 @@
       <ul class="social-links">
       {% for s in SOCIAL %}
         {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
-        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+          {% if name_sanitized in ['github', 'twitter', 'linkedin'] %}
+            {% set iconattributes = '"fab fa-' ~ name_sanitized ~ ' fa-lg"' %}
+          {% else %}
+            {% set iconattributes = '"fas fa-' ~ name_sanitized ~ ' fa-lg"' %}
+          {% endif %}
         <li><a href="{{ s[1] }}"><i class={{ iconattributes }}></i></a></li>
       {% endfor %}
     </ul>
