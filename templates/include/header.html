@@ -14,9 +14,9 @@
       <ul id="nav" class="nav">
 
       {% for menu_element in MENU_ELEMENTS %}
-        {% if menu_element == 'menulinks' %}
+        {% if menu_element == 'menu_links' %}
         <!-- Links that are not pages -->
-          {% for link in MENU_LINKS %}1
+          {% for link in MENU_LINKS %}
             <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
           {% endfor %}
 
