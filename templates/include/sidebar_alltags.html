@@ -1,6 +1,6 @@
 {% if tags %}
 <div class="widget widget_tags">
-  <h3>Post Tags</h3>
+  <h3>All Tags</h3>
     <div class="tagcloud group">
       {% for tag, null in tags | sort %}
         <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
