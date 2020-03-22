@@ -1,0 +1,15 @@
+<!-- Series text at the beginning of article -->
+{% if article.series %}
+<div class="series">
+  <p>This post is part <strong>#{{article.series.index }} </strong> of the series <strong>{{ article.series.name }}</strong>:</p>
+  <ol>
+    {% for part_article in article.series.all %}
+      {% if part_article == article %}<strong>{% endif %}
+      <li>
+        <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+      </li>
+      {% if part_article == article %}</strong>{% endif %}
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}

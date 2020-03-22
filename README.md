@@ -2,7 +2,7 @@
 Port to Pelican of the [Keep It Simple](https://www.styleshout.com/free-templates/keep-it-simple/) website template developed [StyleShout](https://www.styleshout.com/).
 
 This theme is ready to support:
-* [Disqus](https://disqus.com/) comments, [tipue_search](https://tipue.com/search/) ([Pelican plugin required](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)), [Google analytics](https://analytics.google.com/analytics/web/),  and [Pygments](https://pygments.org/).
+* [Disqus](https://disqus.com/) comments, [tipue_search](https://tipue.com/search/) ([Pelican plugin required](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)), [Google analytics](https://analytics.google.com/analytics/web/), [Pygments](https://pygments.org/), and [Series](https://github.com/getpelican/pelican-plugins/tree/master/series).
 
 A live demo can be found in: [www.castoriscausa.com](www.castoriscausa.com)
 

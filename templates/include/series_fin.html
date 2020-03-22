@@ -1,0 +1,18 @@
+<!-- Series text at the end of article -->
+{% if article.series %}
+<div class="series">
+  <p>Series <strong>{{ article.series.name }}</strong>:</p>
+  <ul>
+    {% if article.series.next %}
+    <li>
+      Next: <a href='{{ SITEURL }}/{{ article.series.next.url }}'>{{ article.series.next.title }}</a>
+    </li>
+    {% endif %}
+    {% if article.series.previous %}
+    <li>
+      Previous: <a href='{{ SITEURL }}/{{ article.series.previous.url }}'>{{ article.series.previous.title }}</a>
+    </li>
+    {% endif %}
+  </ul>
+<div>
+{% endif %}
