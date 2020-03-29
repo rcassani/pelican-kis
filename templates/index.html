@@ -17,10 +17,6 @@
             {{ article.summary|striptags }}
           </div>
 
-          {% if DISQUS_SITENAME %}
-          <p class=tags><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a></p>
-          {% endif %}
-
         </article> <!-- end entry -->
         {% if not loop.last %} <hr> {% endif %}
       {% endfor %}

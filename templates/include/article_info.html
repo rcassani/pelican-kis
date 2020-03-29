@@ -43,6 +43,13 @@
             {% for tag in article.tags | sort %}
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
+            <br>
+          {% endif %}
+          {% if DISQUS_SITENAME %}
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>
+            </span>
           {% endif %}
         </p>
       {% endif %}
