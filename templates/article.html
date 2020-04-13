@@ -5,17 +5,11 @@
   <div class="row">
     <div id="main" class="eight columns">
       <article class="entry">
-        {% include 'include/article_info.html' %}
-
+        {% with caller='article' %}
+          {% include 'include/article_info.html' %}
+        {% endwith %}
         <div class="entry-content-media">
           <div class="post-thumb">
-            {% if article.image %}
-              {% if article.image.lower() != 'default' %}
-                <img src= "{{ SITEURL }}/images/{{article.image}}">
-              {% else %}
-                <img src= "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/m-farmerboy.jpg">
-              {% endif %}
-            {% endif %}
           </div>
         </div>
 

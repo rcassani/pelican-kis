@@ -11,8 +11,9 @@
 
       {% for article in articles_page.object_list %}
         <article class="entry">
-          {% include 'include/article_info.html' %}
-
+          {% with caller='index' %}
+            {% include 'include/article_info.html' %}
+          {% endwith %}
           <div class="entry-content">
             {{ article.summary|striptags }}
           </div>
