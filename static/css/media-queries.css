@@ -34,8 +34,8 @@
 	/* header styles
 	-------------------------------------------------------------- */
 	header .header-content {
-		background: #fff url(img/header-content-bg.png) no-repeat right top;
-		background-size: 330px 234px;
+		/*background: #fff url(img/header-content-bg.png) no-repeat right top;*/
+		/*background-size: 330px 234px;*/
 	}
 	header h1#logo-text a {
 		font: normal 60px Georgia, Serif;
@@ -59,17 +59,21 @@
 		height: 276px;
 	}
 	header .header-content {
-		background: #fff url(img/header-content-bg.png) no-repeat 50% top;
-		padding: 0;
-		border: none;
+		/*background: #fff url(img/header-content-bg.png) no-repeat 50% top;*/
+		/*padding: 0;*/
+		/*border: none;*/
 	}
 	header h1#logo-text,
 	header p#intro {
-		width: 100%;
+		/*width: 100%;*/
 		text-align: center;
-		position: static;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
-	header h1#logo-text { padding-top: 108px;	}
+	header h1#logo-text { padding-top: 0px;	}
 	header h1#logo-text a {
 		font: normal 56px Georgia, Serif;
 		letter-spacing: -3.5px;
@@ -332,8 +336,8 @@
 
 	/* header styles
 	-------------------------------------------------------------- */
-	header h1#logo-text { padding-top: 105px;	}
-	header h1#logo-text a {	font: normal 52px Georgia, Serif; }
+	header h1#logo-text { padding-top: 0px;	}
+	header h1#logo-text a {	font: normal 56px Georgia, Serif; }
 	header p#intro { font: 14px/24px 'opensans-light', Georgia, Serif; }
 
 	/* mobile navigation
@@ -355,8 +359,8 @@
 		height: 260px;
 	}
 	header .header-content {
-		background: #fff url(img/header-content-bg.png) no-repeat 50% top;
-		background-size: 300px 213px;
+		/*background: #fff url(img/header-content-bg.png) no-repeat 50% top;*/
+		/*background-size: 300px 213px;*/
 	}
    header h1#logo-text a {
 		font: normal 46px Georgia, Serif;
