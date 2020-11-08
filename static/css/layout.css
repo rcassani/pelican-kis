@@ -97,7 +97,7 @@ header p#intro {
 }
 header img#header-logo {
 	right: 18px;
-	top: 54px;
+	top: 55px;
 	max-height: 200px;
 	display: block;
 	position: absolute;
@@ -146,7 +146,7 @@ ul#nav {
 ul#nav li {
    position: relative;
    list-style: none;
-   height: 50px;
+   height: 54px;
    display: inline-block;
    padding-top: 10px;
 }
