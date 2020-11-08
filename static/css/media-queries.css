@@ -82,6 +82,7 @@
 		font: 15px/24px 'opensans-light', Georgia, Serif;
 	}
 	header img#header-logo {
+		right: 0px;
 		margin: auto;
 		display: block;
 		position: relative;
