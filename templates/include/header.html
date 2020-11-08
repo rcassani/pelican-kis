@@ -2,6 +2,11 @@
 ================================================== -->
   <div class="row">
     <div class="header-content twelve columns">
+      {% if SITELOGO %}
+        <img id="header-logo" src= "{{ SITEURL }}/images/{{SITELOGO}}">
+      {% else %}
+        <img id="header-logo" src= "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/header-content-bg.png">
+      {% endif %}
       <h1 id="logo-text"><a href="{{ SITEURL }}" title="">{{ SITENAME }}</a></h1>
       <p id="intro">{{ SITESUBTITLE }}</p>
     </div>

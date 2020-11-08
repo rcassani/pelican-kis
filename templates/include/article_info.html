@@ -1,4 +1,9 @@
-<header class="entry-header">
+{% if caller == 'index' %}
+  <div class="row"> <!-- div row -->
+  <header class="entry-header eight columns">
+{% elif caller == 'article' %}
+  <header class="entry-header">
+{% endif %}
 
   <h2 class="entry-title">
     <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
@@ -11,48 +16,70 @@
         <i class="fa fa-calendar-alt"></i>
         {{ article.locale_date }}
       </li>
+
       {% if SHOW_ARTICLE_DATEMODIFIED and article.modified %}
       <!-- modified date -->
-      <span class="meta-sep">&nbsp;</span>
-      <li>
-        <i class="fa fa-pencil"></i>
-        {{ article.locale_modified }}
-      </li>
+        <span class="meta-sep">&nbsp;</span>
+        <li>
+          <i class="fa fa-pencil"></i>
+          {{ article.locale_modified }}
+        </li>
       {% endif %}
+
       {% if SHOW_ARTICLE_AUTHOR and article.authors %}
       <!-- author -->
         <span class="meta-sep">&bull;</span>
         <li class="list-inline-item">
-        <i class="fa fa-user"></i>
-        {% for author in article.authors %}
-          <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
-        {% endfor %}
+          <i class="fa fa-user"></i>
+          {% for author in article.authors %}
+            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
         </li>
       {% endif %}
+
       {% if SHOW_ARTICLE_CATEGORY or SHOW_ARTICLE_TAGS %}
       <!-- category and tags -->
         <p class="tags">
+
           {% if SHOW_ARTICLE_CATEGORY and article.category %}
             <i class="fa fa-folder-open"></i>
             <span>Category: </span>
             <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a><br>
           {% endif %}
+
           {% if SHOW_ARTICLE_TAGS and article.tags %}
             <i class="fa fa-tags"></i>
             <span>Tagged in: </span>
             {% for tag in article.tags | sort %}
-            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
             <br>
           {% endif %}
+
           {% if DISQUS_SITENAME %}
             <span>
               <i class="fa fa-comments"></i>
               <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>
             </span>
           {% endif %}
+
         </p>
       {% endif %}
     </ul>
   </div>
 </header>
+
+{% if caller == 'index' %}
+  <div class="entry-thumb four columns">
+    <center>
+      <a href="{{ SITEURL }}/{{ article.url }}">
+        {% if article.thumbnail %}
+          <img src= "{{ SITEURL }}/images/{{article.thumbnail}}">
+        {% else %}
+          <img src= "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/m-farmerboy.jpg">
+        {% endif %}
+      </a>
+    </center>
+  </div>
+</div> <!-- div row -->
+{% endif %}
