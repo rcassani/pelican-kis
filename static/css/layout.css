@@ -95,6 +95,13 @@ header p#intro {
 	position: absolute;
 	top: 192px; left: 30px;
 }
+header img#header-logo {
+	right: 18px;
+	top: 54px;
+	max-height: 200px;
+	display: block;
+	position: absolute;
+}
 
 
 /* primary navigation
