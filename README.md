@@ -37,6 +37,7 @@ SHOW_CATEGORIES_ON_MENU = True
 SIDEBAR_ELEMENTS = ['tipuesearch_input', 'categories', 'text', 'tags', 'links']
 SIDEBAR_TITLE_TEXT = u'Hello'
 SIDEBAR_TEXT = u'A brief text that will appear in de siderbar, this can be anything'
+# Links can be (Text, URL) or (Text, ULR, Image)
 LINKS = (
          ('Home', '/'),
          ('Google', 'https://www.google.com/')
