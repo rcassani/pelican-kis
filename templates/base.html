@@ -56,9 +56,9 @@
 
     <!-- Favicons -->
     {% if FAVICON %}
-      <link rel="shortcut icon" href="FAVICON" >
+      <link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON }}" >
     {% else %}
-    <link rel="shortcut icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/favicon.png">
+      <link rel="shortcut icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/favicon.png">
     {% endif %}
 
   </head>
