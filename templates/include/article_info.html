@@ -1,8 +1,6 @@
-{% if caller == 'index' %}
+{% if (caller == 'index' or caller == 'article') %}
   <div class="row"> <!-- div row -->
   <header class="entry-header eight columns">
-{% elif caller == 'article' %}
-  <header class="entry-header">
 {% endif %}
 
   <h2 class="entry-title">
@@ -69,7 +67,7 @@
   </div>
 </header>
 
-{% if caller == 'index' %}
+{% if (caller == 'index' or caller == 'article') %}
   <div class="entry-thumb four columns">
     <center>
       <a href="{{ SITEURL }}/{{ article.url }}">
