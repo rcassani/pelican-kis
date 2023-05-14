@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
+{% block pyscript %}
+  {% if (article.pyscript and 'JS' in article.pyscript) %}
+    <!-- PyScript -->
+    {% if 'CSS' in article.pyscript %}
+      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    {% endif %}
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock pyscript %}
+
 {% block content %}
 <!-- Content - Article -->
   <div class="row">
