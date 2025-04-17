@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block pyscript %}
-  {% if (article.pyscript and 'JS' in article.pyscript) %}
+  {% if article.pyscript_js %}
     <!-- PyScript -->
-    {% if 'CSS' in article.pyscript %}
-      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    {% if article.pyscript_css %}
+      <link rel="stylesheet" href="{{ article.pyscript_css }}" />
     {% endif %}
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script type="module" src="{{ article.pyscript_js }}"></script>
   {% else %}
     {{ super() }}
   {% endif %}
