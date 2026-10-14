@@ -411,6 +411,17 @@ ul#nav ul li a {
 }
 .entry .tags a { font-family: 'opensans-bold', sans-serif; }
 
+.entry .translations {
+  font-family: 'opensans-regular', sans-serif;
+  color: #888;
+  margin-bottom: 0px;
+}
+
+.entry .translations a { font-family: 'opensans-bold', sans-serif; }
+
+.entry .translations .fa-language {
+  font-size: 0.85em;
+}
 
 /* post-nav */
 .post-nav {

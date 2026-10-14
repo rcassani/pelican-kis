@@ -35,6 +35,17 @@
         </li>
       {% endif %}
 
+      {% if SHOW_ARTICLE_TRANSLATIONS and article.translations %}
+      <!-- translations -->
+        <p class="translations">
+          <i class="fa fa-language"></i>
+          <span>Translations: </span>
+          {% for t in article.translations %}
+            <a href="{{ SITEURL }}/{{ t.url }}">{{ LANGUAGE_NAMES.get(t.lang, t.lang) if LANGUAGE_NAMES else t.lang }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+      {% endif %}
+
       {% if SHOW_ARTICLE_CATEGORY or SHOW_ARTICLE_TAGS %}
       <!-- category and tags -->
         <p class="tags">
