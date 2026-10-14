@@ -613,6 +613,9 @@ ol.commentlist {
 	list-style: disc;
 	margin-left: 17px;
 }
+.archive-list p {
+	margin-bottom: 10px;
+}
 
 
 /* g. Footer
