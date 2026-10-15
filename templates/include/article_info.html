@@ -66,9 +66,14 @@
           {% endif %}
 
           {% if DISQUS_SITENAME %}
+            <!-- orig: article or DEFAULT_LANG article (if article is a translation), so translations share its Disqus thread -->
+            {% set orig = ([article] + article.translations)
+                          | selectattr('lang', 'equalto', DEFAULT_LANG)
+                          | first | default(article, true) %}
             <span>
               <i class="fa fa-comments"></i>
-              <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">Comments</a>
+              <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread"
+                 data-disqus-url="{{ SITEURL }}/{{ orig.url }}">Comments</a>
             </span>
           {% endif %}
 
