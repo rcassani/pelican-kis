@@ -72,8 +72,10 @@
                           | first | default(article, true) %}
             <span>
               <i class="fa fa-comments"></i>
-              <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread"
-                 data-disqus-url="{{ SITEURL }}/{{ orig.url }}">Comments</a>
+              <a href="{{ SITEURL }}/{{ article.url }}#comments">
+                <span class="disqus-comment-count"
+                      data-disqus-url="{{ SITEURL }}/{{ orig.url }}">Comments</span>
+              </a>
             </span>
           {% endif %}
 
